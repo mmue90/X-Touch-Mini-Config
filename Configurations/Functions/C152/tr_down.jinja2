@@ -3,22 +3,22 @@
 {{ data.print(encoder_index) }}
 {{ data.print(setting) }}
 {% if setting == 4 %}
-    {{ data.trigger_event('MobiFlight.TransponderALT', 1) }}
+    {{ data.trigger_event('MobiFlight.TR_ALT', 1) }}
     {{ data.set_global_variable('TR_SETTING', 3) }}
 	{% set knobpos = 9 %}
     {{ data.set_encoder_led_value(encoder_index, knobpos) }}
 {% elif setting == 3 %}
-    {{ data.trigger_event('MobiFlight.TransponderON', 1) }}
+    {{ data.trigger_event('MobiFlight.TR_ON', 1) }}
     {{ data.set_global_variable('TR_SETTING', 2) }}
 	{% set knobpos = 7 %}
     {{ data.set_encoder_led_value(encoder_index, knobpos) }}
 {% elif setting == 2 %}
-    {{ data.trigger_event('MobiFlight.TransponderSTBY', 1) }}
+    {{ data.trigger_event('MobiFlight.TR_STBY', 1) }}
     {{ data.set_global_variable('TR_SETTING', 1) }}
 	{% set knobpos = 5 %}
     {{ data.set_encoder_led_value(encoder_index, knobpos) }}
 {% else %}
-    {{ data.trigger_event('MobiFlight.TransponderOFF', 1) }}
+    {{ data.trigger_event('MobiFlight.TR_OFF', 1) }}
     {{ data.set_global_variable('TR_SETTING',0) }}
 	{% set knobpos = 3 %}
     {{ data.set_encoder_led_value(encoder_index, knobpos) }}
