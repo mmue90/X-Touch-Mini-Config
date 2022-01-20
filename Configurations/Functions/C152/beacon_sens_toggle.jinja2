@@ -1,0 +1,7 @@
+{% set state = data.get_simvar_value('MARKER_BEACON_SENSITIVITY_HIGH') %}
+{{ data.print(state) }}
+{% if state == 1 %}
+	{{ data.set_simvar_value('MARKER_BEACON_SENSITIVITY_HIGH', 0) }}
+{% else %}
+	{{ data.set_simvar_value('MARKER_BEACON_SENSITIVITY_HIGH', 1) }}
+{% endif %}

@@ -1,0 +1,7 @@
+{% set encoder_index = data.get_global_variable('MIX_ENC') %}
+{{ data.trigger_event('MIXTURE_DECR_SMALL', 1) }}
+{% set mix = data.get_simvar_value('GENERAL_ENG_MIXTURE_LEVER_POSITION:1') %}
+{# {{ data.print(mix) }} #}
+{% set knobpos = (mix / 7.69) | round %}
+{# {{ data.print(knobpos) }} #}
+{{ data.set_encoder_led_value(encoder_index, knobpos) }}

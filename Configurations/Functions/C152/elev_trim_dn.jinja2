@@ -1,0 +1,9 @@
+{% set encoder_index = data.get_global_variable('TRIM_ENC') %}
+{{ data.trigger_event('ELEV_TRIM_DN', 1) }}
+{% set trim = data.get_simvar_value('ELEVATOR_TRIM_POSITION') %}
+{# {{ data.print(trim) }} #}
+{% set show = (trim * 17.63) | round %}
+{# {{ data.print(show) }} #}
+{% set knobpos = ( 7 - show ) %}
+{# {{ data.print(knobpos) }} #}
+{{ data.set_encoder_led_value(encoder_index, knobpos) }}

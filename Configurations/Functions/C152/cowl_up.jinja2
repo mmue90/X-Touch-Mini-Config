@@ -1,0 +1,14 @@
+{% set encoder_index = data.get_global_variable('COWL_ENC') %}
+{% set cowl = data.get_global_variable('ENG_ANTIICE') %}
+{{ data.print(cowl) }}
+{% if cowl == 13 %}
+	{% set cowl_new = cowl %}
+{% else %}	
+	{% set cowl_new = ( cowl + 1 ) %}
+{% endif %}
+{% set new = ((cowl_new - 1 ) * 1365.33) %}
+{{ data.print(new) }}
+{{ data.trigger_event('ANTI_ICE_GRADUAL_SET_ENG1', new) }}
+{{ data.set_global_variable('ENG_ANTIICE', cowl_new) }}
+{% set knobpos = cowl_new %}
+{{ data.set_encoder_led_value(encoder_index, knobpos) }}

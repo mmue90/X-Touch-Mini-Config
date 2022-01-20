@@ -1,0 +1,25 @@
+{% set encoder_index = data.get_global_variable('TR_ENC') %}
+{% set setting = data.get_global_variable('TR_SETTING') %}
+{{ data.print(encoder_index) }}
+{{ data.print(setting) }}
+{% if setting == 0 %}
+    {{ data.trigger_event('MobiFlight.TransponderSTBY', 1) }}
+    {{ data.set_global_variable('TR_SETTING', 1) }}
+	{% set knobpos = 5 %}
+    {{ data.set_encoder_led_value(encoder_index, knobpos) }}
+{% elif setting == 1 %}
+    {{ data.trigger_event('MobiFlight.TransponderON', 1) }}
+    {{ data.set_global_variable('TR_SETTING', 2) }}
+	{% set knobpos = 7 %}
+    {{ data.set_encoder_led_value(encoder_index, knobpos) }}
+{% elif setting == 2 %}
+    {{ data.trigger_event('MobiFlight.TransponderALT', 1) }}
+    {{ data.set_global_variable('TR_SETTING', 3) }}
+	{% set knobpos = 9 %}
+    {{ data.set_encoder_led_value(encoder_index, knobpos) }}
+{% else %}
+    {{ data.trigger_event('MobiFlight.TransponderTST', 1) }}
+    {{ data.set_global_variable('TR_SETTING',4) }}
+	{% set knobpos = 11 %}
+    {{ data.set_encoder_led_value(encoder_index, knobpos) }}
+{% endif %}

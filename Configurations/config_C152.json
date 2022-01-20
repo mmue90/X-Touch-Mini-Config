@@ -1,0 +1,295 @@
+{
+  "$schema": "./config.schema.json",
+  "version": {
+    "major": 1,
+    "minor": 1,
+    "patch": 0
+  },
+  "encoders": [
+    {"index": 1,
+		"event_up": {
+        "type": "condition-file",
+        "event": "Functions/C152/ign_up.jinja2"
+      },
+		"event_down": {
+        "type": "condition-file",
+        "event": "Functions/C152/ign_down.jinja2"
+      }
+ 
+    },
+    {"index": 2,
+		"event_up": "COM_RADIO_WHOLE_INC",
+		"event_down": "COM_RADIO_WHOLE_DEC",
+		"alternate_event_up": "COM_RADIO_FRACT_INC",
+		"alternate_event_down": "COM_RADIO_FRACT_DEC",
+		"event_short_press": "{alternate}",
+		"event_long_press": "COM1_RADIO_SWAP"	
+    },
+    {"index": 3,
+		"event_up": "NAV1_RADIO_WHOLE_INC",
+		"event_down": "NAV1_RADIO_WHOLE_DEC",
+		"alternate_event_up": "NAV1_RADIO_FRACT_INC",
+		"alternate_event_down": "NAV1_RADIO_FRACT_DEC",
+		"event_short_press": "{alternate}",
+		"event_long_press": "NAV1_RADIO_SWAP"      
+    },	
+    {"index": 4,
+		"event_up": "NAV2_RADIO_WHOLE_INC",
+		"event_down": "NAV2_RADIO_WHOLE_DEC",
+		"alternate_event_up": "NAV2_RADIO_FRACT_INC",
+		"alternate_event_down": "NAV2_RADIO_FRACT_DEC",
+		"event_short_press": "{alternate}",
+		"event_long_press": "NAV2_RADIO_SWAP"
+      
+    },
+    {"index": 5,
+		"event_up": {
+        "type": "condition-file",
+        "event": "Functions/C152/elev_trim_dn.jinja2"
+      },
+		"event_down": {
+        "type": "condition-file",
+        "event": "Functions/C152/elev_trim_up.jinja2"
+      }
+
+    },
+    {"index": 6,
+		"event_up": {
+        "type": "condition-file",
+        "event": "Functions/C152/mix_up.jinja2"
+      },
+		"event_down": {
+        "type": "condition-file",
+        "event": "Functions/C152/mix_dn.jinja2"
+      }
+
+    },
+    {"index": 7,
+		"event_up": {
+        "type": "condition-file",
+        "event": "Functions/C152/cowl_up.jinja2"
+      },
+		"event_down": {
+        "type": "condition-file",
+        "event": "Functions/C152/cowl_dn.jinja2"
+      }
+
+    },
+    {"index": 8,
+		"event_up": {
+        "type": "condition-file",
+        "event": "Functions/C152/flaps_down.jinja2"
+      },
+		"event_down": {
+        "type": "condition-file",
+        "event": "Functions/C152/flaps_up.jinja2"
+      }
+	},
+    {"index": 9,
+		"event_up": {
+        "type": "condition-file",
+        "event": "Functions/C152/tr_up.jinja2"
+      },
+		"event_down": {
+        "type": "condition-file",
+        "event": "Functions/C152/tr_down.jinja2"
+      }
+    },
+    {"index": 10,
+		"event_up": "COM2_RADIO_WHOLE_INC",
+		"event_down": "COM2_RADIO_WHOLE_DEC",
+		"alternate_event_up": "COM2_RADIO_FRACT_INC",
+		"alternate_event_down": "COM2_RADIO_FRACT_DEC",
+		"event_short_press": "{alternate}",
+		"event_long_press": "COM2_RADIO_SWAP"	 
+    },
+    {"index": 11
+
+    }
+  ],
+  "buttons": [
+    {"index": 1,
+		"event_press": "TOGGLE_MASTER_ALTERNATOR",
+		"simvar_led": "GENERAL_ENG_MASTER_ALTERNATOR:1"
+
+    },
+    {"index": 2,
+		"event_press": "TOGGLE_MASTER_BATTERY",
+		"simvar_led": "ELECTRICAL_MASTER_BATTERY"
+
+    },
+    {"index": 3,
+		"event_press": "PARKING_BRAKES",
+		"simvar_led": "BRAKE_PARKING_INDICATOR"
+
+    },
+    {"index": 4,
+		"event_press": "TOGGLE_FUEL_VALVE_ALL",
+		"simvar_led": "GENERAL_ENG_FUEL_VALVE:1"
+    },
+    {"index": 5,
+		"event_press": "ENGINE_PRIMER"
+    },
+	{"index": 6,
+		"event_press":{
+			"type": "condition-file",
+			"event": "Functions/C152/beacon_sens_toggle.jinja2"
+		},
+		"simvar_led": "MARKER_BEACON_SENSITIVITY_HIGH"
+	},
+    {"index": 7,
+		"event_press": "ANTI_ICE_TOGGLE",
+		"simvar_led": "GENERAL_ENG_ANTI_ICE_POSITION:1"
+
+    },
+    {"index": 8
+
+    },
+    {"index": 9,
+		"event_press": "TOGGLE_CABIN_LIGHTS",
+		"simvar_led": "LIGHT_CABIN_ON"
+
+    },
+    {"index": 10,
+		"event_press": "PITOT_HEAT_TOGGLE",
+		"simvar_led": "PITOT_HEAT"
+
+    },
+    {"index": 11,
+		"event_press": "TOGGLE_NAV_LIGHTS",
+		"simvar_led": "LIGHT_NAV_ON"
+
+    },
+    {"index": 12,
+		"event_press": "STROBES_TOGGLE",
+		"simvar_led": "LIGHT_STROBE_ON"
+	  
+    },
+    {"index": 13,
+		"event_press": "TOGGLE_BEACON_LIGHTS",
+		"simvar_led": "LIGHT_BEACON_ON"
+
+    },
+    {"index": 14,
+		"event_press": "TOGGLE_TAXI_LIGHTS",
+		"simvar_led": "LIGHT_TAXI_ON"
+
+    },
+    {"index": 15,
+		"event_press": "LANDING_LIGHTS_TOGGLE",
+		"simvar_led": "LIGHT_LANDING_ON"
+
+    },
+	{"index": 16
+	
+	},
+    {"index": 17,
+		"event_press": "XPNDR_1000_INC"
+    },
+    {"index": 18,
+		"event_press": "XPNDR_100_INC"	
+    },
+    {"index": 19,
+		"event_press": "XPNDR_10_INC"
+    },
+	{"index": 20,
+		"event_press": "XPNDR_1_INC"
+    },
+	{"index": 21,
+		"event_press": "XPNDR_IDENT_TOGGLE",
+		"simvar_led": "TRANSPONDER_IDENT"
+    },
+	{"index": 22,
+		"event_press": "ADF_100_INC"
+    },
+	{"index": 23,
+		"event_press": "ADF_10_INC"
+    },
+	{"index": 24,
+		"event_press": "ADF_1_INC"
+    },
+	{"index": 25,
+		"event_press": "XPNDR_1000_DEC"
+    },
+	{"index": 26,
+		"event_press": "XPNDR_100_DEC"
+    },
+	{"index": 27,
+		"event_press": "XPNDR_10_DEC"
+    },
+	{"index": 28,
+		"event_press": "XPNDR_1_DEC"
+    },
+	{"index": 29
+
+    },
+	{"index": 30,
+		"event_press": "ADF_100_DEC"
+    },
+	{"index": 31,
+		"event_press": "ADF_10_DEC"
+    },
+	{"index": 32,
+		"event_press": "ADF_1_DEC"	
+	}
+  ],
+  "faders": [
+    {
+      "index": 1,
+      "event_change": "THROTTLE_SET",
+      "min_value": 0,
+      "max_value": 16383
+    }
+  ], 
+  "triggers": [
+    {
+      "simvar": "AUTOPILOT_VERTICAL_HOLD",
+      "trigger_type": "encoder",
+      "trigger_index": 5
+    }
+  ],  
+  "initialization": {
+    "global_variables": [
+      {
+        "name": "FLAPS_ENC",
+        "value": 8
+      },
+	  {
+		  "name": "FLAPS_SETTING",
+		  "value": 0
+	  },
+      {
+        "name": "TR_ENC",
+        "value": 9
+      },
+	  {
+		  "name": "TR_SETTING",
+		  "value": 3
+	  },
+      {
+        "name": "IGN_ENC",
+        "value": 1
+      },
+	  {
+		  "name": "IGN_SETTING",
+		  "value": 3
+	  },
+	  {
+		  "name": "TRIM_ENC",
+		  "value": 5
+	  },
+	  {
+		  "name": "MIX_ENC",
+		  "value": 6
+	  },
+	  {
+		  "name": "COWL_ENC",
+		  "value": 7
+	  },
+	  {
+		  "name": "ENG_ANTIICE",
+		  "value": 1
+	  }
+    ]
+  }
+}
